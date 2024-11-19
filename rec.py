@@ -7,7 +7,6 @@ from google.cloud import vision_v1p3beta1 as vision
 
 def food_scan(image_root):
     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'client_key.json'
-
     default_path=""
     food_type="popular foods"
     #foods = [line.rstrip('\n').lower() for line in open('food_names/' + food_type + '.dict')]
@@ -42,4 +41,4 @@ def food_scan(image_root):
     item,confidence=find_food(image_root)
     #print(item,confidence)
     return item,confidence
-    print("end") 
+    #print("end") 
