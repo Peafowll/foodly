@@ -5,6 +5,7 @@ def get_camera():
 
     frame_width = int(cam.get(cv.CAP_PROP_FRAME_WIDTH))
     frame_height = int(cam.get(cv.CAP_PROP_FRAME_HEIGHT))
+    print(f"Camera resolution: {frame_width}x{frame_height}")
 
     while(1):
         _, frame = cam.read()
@@ -12,8 +13,12 @@ def get_camera():
         if cv.waitKey(1) == ord('q'):
             break
         if cv.waitKey(32) == ord(' '):
-            cv.imwrite("food.jpg",frame)
+            cv.imwrite("\\hackathon\\food.jpg",frame)
 
 
     cam.release()
+<<<<<<< Updated upstream
     cv.destroyAllWindows()
+=======
+    cv.destroyAllWindows()
+>>>>>>> Stashed changes
