@@ -23,5 +23,5 @@ def food_scan(continut,client):
                 break
         return "food not found",0
     item,confidence=find_food(continut,allowed_foods)
-    print(datetime.now()-firsttime)
+    #print(datetime.now()-firsttime)
     return item,confidence

@@ -67,5 +67,3 @@ def live():
     worker.join()
     cam.release()
     cv.destroyAllWindows()
-
-live()
