@@ -5,7 +5,7 @@ from datetime import datetime
 import cv2   
 from google.cloud import vision_v1p3beta1 as vision
 
-allowed_foods=[line.rstrip('\n ').lower() for line in open('food_detection_lists/list.txt')]
+allowed_foods=[line.rstrip('\n ').lower() for line in open('food.list')]
 def food_scan(continut,client):
     firsttime=datetime.now()
     global allowed_foods
