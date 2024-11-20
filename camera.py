@@ -13,6 +13,7 @@ def get_camera():
         if cv.waitKey(1) == ord('q'):
             break
         if cv.waitKey(32) == ord(' '):
+            print("Photo taken")
             cv.imwrite("\\hackathon\\food.jpg",frame)
     cam.release()
     cv.destroyAllWindows()

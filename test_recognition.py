@@ -4,39 +4,34 @@ from google.cloud import vision_v1p3beta1 as vision
 from threading import Thread, Lock
 from queue import Queue
 import time
-
+from rec import food_scan
 cam = cv.VideoCapture(0)
 cam.set(cv.CAP_PROP_FRAME_WIDTH, 640)
 cam.set(cv.CAP_PROP_FRAME_HEIGHT, 480)
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'client_key.json'
-client = vision.ImageAnnotatorClient()
+#os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'client_key.json'
+#client = vision.ImageAnnotatorClient()
 
 showable_label = "Loading..."
 lock = Lock()
-frame_queue = Queue(maxsize=5)
-
+frame_queue = Queue(maxsize=1)
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'client_key.json'
+client=vision.ImageAnnotatorClient()
 def process_frames():
     global showable_label
     while True:
         content = frame_queue.get()
         if content is None:
             break
-        image = vision.Image(content=content)
-        response = client.label_detection(image=image)
-        labels = response.label_annotations
-        for label in labels:
-            desc = label.description.lower()
-            score = round(label.score, 2)
-            with lock:
-                showable_label = f"{desc} ({score})"
-            break
+        food_item,scan_confidence=food_scan(content,client)
+        showable_label=f"{food_item},{scan_confidence}"
 
 worker = Thread(target=process_frames, daemon=True)
 worker.start()
 
+
 while True:
-    time.sleep(0.01)
+    time.sleep(0.02)
     ret, frame = cam.read()
     if not ret:
         break
@@ -51,7 +46,7 @@ while True:
 
     cv.imshow("CAMERA", frame)
 
-    if cv.waitKey(1) & 0xFF == ord('q'):
+    if cv.waitKey(1) & 0xFF == 27:
         break
 
     if cv.waitKey(1) & 0xFF == 32:
