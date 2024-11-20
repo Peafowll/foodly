@@ -6,7 +6,7 @@ from queue import Queue
 import time
 from rec import food_scan
 
-def live():
+def hack():
     #initiate the camera and sizes
     cam = cv.VideoCapture(0) 
     cam.set(cv.CAP_PROP_FRAME_WIDTH, 640)
@@ -60,10 +60,14 @@ def live():
         fps = 1/elapsed_time if elapsed_time>0 else 0
         prev_time = current_time
 
+        text_size_label, _ = cv.getTextSize(showable_label, cv.FONT_HERSHEY_SIMPLEX, 1, 2)
+        text_width_label, text_height_label = text_size_label
+        cv.rectangle(frame, (40, 20), (50 + text_width_label, 120 + text_height_label), (0, 0, 0), -1)
+
         #putting the text when sure we have info
         with lock:
-            cv.putText(frame, showable_label, (50, 50), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv.LINE_AA)
-            cv.putText(frame, f"FPS: {int(fps)}", (50, 100), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv.LINE_AA)
+            cv.putText(frame, showable_label, (50, 50), cv.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 155), 2, cv.LINE_AA)
+            cv.putText(frame, f"FPS: {int(fps)}", (50, 110), cv.FONT_HERSHEY_SIMPLEX, 1, (155, 255, 155), 2, cv.LINE_AA)
 
         #showing the frames lol
         cv.imshow("CAMERA", frame)

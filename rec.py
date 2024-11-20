@@ -24,7 +24,7 @@ def food_scan(continut,client):
             if desc in food_list: #checks if it detected an allowed object
                 showable_label=desc.split(" ")[0]# ORIBIL
                 return showable_label, score # returns the object and the confidence
-            if score <=0.65: #checks if the AI is confient
+            if score <=0.50: #checks if the AI is confient
                 break
         return "food not found",0 #if it doesnt find a valid object, returns so
     item,confidence=find_food(continut,allowed_foods)

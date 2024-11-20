@@ -4,3 +4,5 @@ Proiect lucrat de catre Paun Tudor si Vatajita Teodor, in echipa "Bastanii".
 
 Proiectul presupune scanarea articolelor de mancare prin camera laptopului si afisarea a ce este detectat
 API-uri principale utilizate includ Google Vision si CV2.
+
+Log : Officially participated and presented the project ideea and demo.

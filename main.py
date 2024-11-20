@@ -4,11 +4,8 @@ import io
 import os
 from datetime import datetime
 import cv2   
-from test_recognition import live
-#get_camera()
+from test_recognition import hack
 
-live()
+hack()
 
-# loc="C:\\Hackathon\\HackathonFoodRec\\food.jpg"
-# food_item,scan_confidence=food_scan(loc)
-# print(f'{food_item}, {scan_confidence}')
+# Log : Did the 
