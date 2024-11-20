@@ -14,11 +14,5 @@ def get_camera():
             break
         if cv.waitKey(32) == ord(' '):
             cv.imwrite("\\hackathon\\food.jpg",frame)
-
-
     cam.release()
-<<<<<<< Updated upstream
     cv.destroyAllWindows()
-=======
-    cv.destroyAllWindows()
->>>>>>> Stashed changes
