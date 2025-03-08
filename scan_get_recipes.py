@@ -1,3 +1,5 @@
+import json
+from yolo_cam import food_identify
 import ultralytics
 from ultralytics import YOLO
 import cv2
@@ -59,3 +61,59 @@ def food_identify():
     # Release resources
     capture.release()
     cv2.destroyAllWindows()
+
+def load_recipes(file_path):
+    """Load recipes from an external file."""
+    with open(file_path, 'r', encoding='windows-1252') as file:
+        return json.load(file)
+
+
+
+def check_recipes(recipes, available_ingredients):
+    """Check which recipes can be made and list missing ingredients."""
+    listlol=[]
+    cnt = 0
+    for recipe_name, recipe_details in recipes.items():
+        if cnt>=9:
+            break
+        cnt=cnt+1
+        instructions = recipe_details.get("instructions", "Unknown Instructions")
+        recipe_ingredients = set(recipe_details.get("ingredients", []))
+        missing_ingredients = recipe_ingredients - set(available_ingredients)
+        
+        print(f"Recipe: {recipe_name}")
+        print(f"Instructions: {instructions}")
+        if missing_ingredients:
+            print(f"Missing ingredients: {', '.join(missing_ingredients)}")
+        else:
+            print("You have all the ingredients!")
+        print("-" * 40)
+
+        real_available_ingredients = []
+
+
+        real_available_ingredients = [ingredient for ingredient in available_ingredients if ingredient in recipe_ingredients]
+        
+        missing_ingredients = list(missing_ingredients)
+        for i in range(len(missing_ingredients)):
+            if missing_ingredients[i] in available_ingredients:
+                missing_ingredients.pop(i)      
+
+        list2 = [recipe_name,real_available_ingredients,missing_ingredients]
+        listlol.append(list2)
+    return listlol
+
+
+def scan_n_load():
+    recipes_file = "recipes.json"
+    available_ingredients = food_identify()
+    print("\n\n----------------------------------\n\n")
+    print(available_ingredients)
+    print("\n\n----------------------------------\n\n")
+    try:
+        recipes = load_recipes(recipes_file)
+        return check_recipes(recipes, available_ingredients)
+    except Exception as e:
+        print(f"Error loading recipes: {e}")
+
+#scan_n_load()

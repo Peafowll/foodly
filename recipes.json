@@ -1,0 +1,85 @@
+{
+    "Banana Apple Smoothie": {
+      "ingredients": ["banana", "apple", "yogurt", "milk", "honey"],
+      "instructions": [
+        "Peel the banana and core the apple.",
+        "Blend the banana, apple, yogurt, milk, and honey until smooth.",
+        "Serve chilled."
+      ]
+    },
+    "Banana Apple Oatmeal": {
+      "ingredients": ["banana", "apple", "oats", "water or milk", "cinnamon"],
+      "instructions": [
+        "Cook the oats with water or milk in a pot.",
+        "Slice the banana and apple and stir them into the oatmeal.",
+        "Sprinkle with cinnamon and serve."
+      ]
+    },
+    "Banana Pancakes": {
+      "ingredients": ["banana", "pancake mix", "water or milk", "vanilla extract"],
+      "instructions": [
+        "Mash the banana.",
+        "Mix pancake batter with the mashed banana and vanilla extract.",
+        "Cook pancakes in a pan."
+      ]
+    },
+    "Apple Banana Bread": {
+      "ingredients": ["banana", "apple", "flour", "baking soda", "sugar", "butter"],
+      "instructions": [
+        "Preheat the oven to 350°F (175°C).",
+        "Mash the bananas and mix them with the chopped apples.",
+        "Combine flour, baking soda, sugar, and butter in a bowl.",
+        "Bake the bread for 50-60 minutes."
+      ]
+    },
+    "Banana Apple Salad": {
+      "ingredients": ["banana", "apple", "mixed greens", "lemon juice", "olive oil"],
+      "instructions": [
+        "Slice the banana and apple.",
+        "Toss them with the mixed greens, lemon juice, and olive oil.",
+        "Serve immediately."
+      ]
+    },
+    "Banana Muffins": {
+      "ingredients": ["banana", "flour", "baking powder", "honey"],
+      "instructions": [
+        "Preheat the oven to 350°F (175°C).",
+        "Mash the banana and mix with honey.",
+        "Mix dry ingredients and combine with the wet ingredients.",
+        "Spoon batter into muffin tins and bake for 20-25 minutes."
+      ]
+    },
+    "Apple Ice Cream": {
+      "ingredients": ["apple", "cream", "sugar", "vanilla"],
+      "instructions": [
+        "Peel and chop the apples.",
+        "Blend the fruit with cream, sugar, and vanilla until smooth.",
+        "Freeze for 2 hours or until firm."
+      ]
+    },
+    "Banana Apple Chutney": {
+      "ingredients": ["banana", "apple", "vinegar", "sugar", "cinnamon"],
+      "instructions": [
+        "Chop the banana and apple.",
+        "Cook with vinegar, sugar, and cinnamon until the mixture thickens.",
+        "Serve as a condiment with meats or cheese."
+      ]
+    },
+    "Banana Crumble": {
+      "ingredients": ["banana", "oats", "butter", "brown sugar"],
+      "instructions": [
+        "Preheat the oven to 375°F (190°C).",
+        "Slice the bananas and place them in a baking dish.",
+        "Mix oats, butter, and sugar, then sprinkle over the fruit.",
+        "Bake for 30 minutes or until golden brown."
+      ]
+    },
+    "Apple Smoothie Bowl": {
+      "ingredients": ["apple", "yogurt", "chia seeds", "granola"],
+      "instructions": [
+        "Blend the apple and yogurt until smooth.",
+        "Pour into a bowl and top with chia seeds and granola."
+      ]
+    }
+  }
+  
