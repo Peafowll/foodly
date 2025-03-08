@@ -1,6 +1,7 @@
 import requests
 import geocoder
 from math import radians, sin, cos, sqrt, atan2
+from location import get_loc_hc
 
 
 partners=[line.rstrip('\n ') for line in open('partners.list')]
@@ -21,9 +22,9 @@ def stores_near_me():
     my_location=geocoder.ip('me')
     my_coords=my_location.latlng
 
-    my_lat=my_coords[0]
-    my_long=my_coords[1]
-
+    #my_lat=my_coords[0]
+    #my_long=my_coords[1]
+    my_lat,my_long=get_loc_hc()
     #print( f"https://www.google.com/maps?q={my_lat},{my_long}")
 
     query_supermarkets = f"""

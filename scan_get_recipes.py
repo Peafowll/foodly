@@ -100,7 +100,8 @@ def check_recipes(recipes, available_ingredients):
                 missing_ingredients.pop(i)      
 
         list2 = [recipe_name,real_available_ingredients,missing_ingredients]
-        listlol.append(list2)
+        if real_available_ingredients != []:
+            listlol.append(list2)
     return listlol
 
 
@@ -116,4 +117,3 @@ def scan_n_load():
     except Exception as e:
         print(f"Error loading recipes: {e}")
 
-#scan_n_load()
