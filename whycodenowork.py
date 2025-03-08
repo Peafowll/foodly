@@ -2,9 +2,10 @@ import ultralytics
 from ultralytics import YOLO
 import cv2
 
+food_list = []  # Global list to store detected food items
 
 def food_identify():
-    food_list = []  # Global list to store detected food items
+    global food_list
 
     food_classes = [i for i in range(46, 52)]  # Food class IDs in COCO dataset
     model = YOLO("yolov8n.pt")  # Load the YOLO model
@@ -53,9 +54,12 @@ def food_identify():
 
         # Exit when 'q' is pressed
         if cv2.waitKey(1) & 0xFF == ord('q'):
-            return food_list
+            print(food_list)
             break
 
     # Release resources
     capture.release()
     cv2.destroyAllWindows()
+
+food_identify()
+print("jobsdone")
