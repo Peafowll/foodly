@@ -24,7 +24,7 @@ def stores_near_me():
     my_lat=my_coords[0]
     my_long=my_coords[1]
 
-    print( f"https://www.google.com/maps?q={my_lat},{my_long}")
+    #print( f"https://www.google.com/maps?q={my_lat},{my_long}")
 
     query_supermarkets = f"""
     [out:json];
@@ -41,12 +41,11 @@ def stores_near_me():
 
     data=response.json()
 
-    stores = {} 
+    stores = []
+    
+    store_count = 10
+    i=0
 
-
-    #print(f'DATA ESTE {data}\n-----------------------------------')
-
-    # Extract store names & locations
     for element in data["elements"]:
         #print(f'{element}\n')
         name = element.get("tags", {}).get("name", "Unnamed Store")
@@ -54,8 +53,15 @@ def stores_near_me():
         store_lat = element["lat"]
         store_long = element["lon"]
         distance=haversine(my_lat,my_long,store_lat,store_long)
+        distance=(int(distance*100)%100)
+        distance=float(distance)/100
         if name in partners:
-            stores[name]=[street,distance,store_lat,store_long]
+            link = f"https://www.google.com/maps?q={store_lat},{store_long}"
+            stores.append([name,street,distance,link])
+            i+=1
             #print(f"{name}, {street} , distanta : {distance:.2f} km: https://www.google.com/maps?q={store_lat},{store_long}")
+        if(i==store_count):
+            break
+
     return(stores)
 
