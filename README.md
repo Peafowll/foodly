@@ -14,7 +14,7 @@ An MVP for an AI-powered food recognition and recipe suggestion application that
 ### InnovationLabs Bucharest Hackathon (March 8-9, 2025)
 - **Team:** Foodly
 - **Coding Team Members:** Paun Tudor & Vatajita Teodor
-- **Result:** Only team of only first-year students to qualify to the second stage of the hackahton through mentor and team leader votes. 
+- **Result:** Only team of only first-year students to qualify to the second stage of the hackahton through mentor and team leader votes.    
 - **Development Time:** ~15 hours (9:30 AM March 8th → 12:43 AM March 9th)
 - **Features:** Local AI model, nearby store locator, basic recipe suggestions, smart sorting, more food recognizing options 
 
